@@ -9,16 +9,17 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AboutActivity extends AppCompatActivity {
-    @BindView(R.id.appAboutTextView)
-    TextView mAppAboutTextView;
+    @BindView(R.id.appAboutTitle)
+    TextView mAppAboutTitle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_routes);
+
         ButterKnife.bind(this);
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
-        mAppAboutTextView.setTypeface(baseFont);
-
+        mAppAboutTitle.setTypeface(baseFont);
     }
 }

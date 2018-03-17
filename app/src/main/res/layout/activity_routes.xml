@@ -8,6 +8,19 @@
     android:background="#000000">
 
     <TextView
+        android:id="@+id/appMyRoutesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="My Routes"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
         android:id="@+id/appMyRoutesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

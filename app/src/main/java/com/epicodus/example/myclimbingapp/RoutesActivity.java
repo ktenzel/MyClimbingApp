@@ -9,8 +9,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class RoutesActivity extends AppCompatActivity {
-    @BindView(R.id.appMyRoutesTextView)
-    TextView mAppMyRoutesTextView;
+    @BindView(R.id.appMyRoutesTitle)
+    TextView mAppMyRoutesTitle;
 
 
     @Override
@@ -20,6 +20,6 @@ public class RoutesActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
-        mAppMyRoutesTextView.setTypeface(baseFont);
+        mAppMyRoutesTitle.setTypeface(baseFont);
     }
 }
