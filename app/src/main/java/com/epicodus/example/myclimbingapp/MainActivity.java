@@ -11,7 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
   @BindView(R.id.routesButton)
   Button mRoutesButton;
   @BindView(R.id.aboutButton)
@@ -26,30 +26,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
         mAppNameTextView.setTypeface(baseFont);
 
-        mRoutesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, RoutesActivity.class);
-                    startActivity(intent);
-            }
-        });
-        mAboutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
-            }
-        });
-        mContactButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ContactActivity.class);
-                startActivity(intent);
-            }
-        });
+        mRoutesButton.setOnClickListener(this);
+        mAboutButton.setOnClickListener(this);
+        mContactButton.setOnClickListener(this);
     }
-}
+
+
+    @Override
+    public void onClick(View v) {
+        if (v == mRoutesButton) {
+            Intent intent = new Intent(MainActivity.this, RoutesActivity.class);
+            startActivity(intent);
+        }
+        if (v == mAboutButton) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        }
+        if (v == mContactButton) {
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
+        }
+    }
+};
