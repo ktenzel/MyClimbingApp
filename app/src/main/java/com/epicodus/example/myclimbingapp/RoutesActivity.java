@@ -12,7 +12,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RoutesActivity extends AppCompatActivity {
+public class RoutesActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.appMyRoutesTitle)
     TextView mAppMyRoutesTitle;
     @BindView(R.id.addRoutesButton)
@@ -32,6 +32,7 @@ public class RoutesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
         mAppMyRoutesTitle.setTypeface(baseFont);
+        mAddRoutesButton.setOnClickListener(this);
     }
 
     @Override
@@ -41,8 +42,10 @@ public class RoutesActivity extends AppCompatActivity {
             String location = mRouteLocationEditText.getText().toString();
             String grade = mRouteGradeEditText.getText().toString();
 
-            Intent intent = new Intent(RoutesActivity.this, RestaurantsActivity.class);
+            Intent intent = new Intent(RoutesActivity.this, RouteListActivity.class);
+            intent.putExtra("name", name);
             intent.putExtra("location", location);
+            intent.putExtra("grade", grade);
             startActivity(intent);
         }
     }
