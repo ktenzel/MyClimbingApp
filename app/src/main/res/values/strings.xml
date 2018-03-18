@@ -2,7 +2,7 @@
     <string name="app_name">MyClimbingApp</string>
     <string name="title_home">Home</string>
     <string name="title_about">About</string>
-    <string name="text_about">This is some Text about this app and how to use it.</string>
+    <string name="text_about">This app is meant to let climbers record the climbs that they have done.  I am hoping to add an API of local outdoor routes, and possible a way for local gyms to allow visitors to quickly record set routes, maybe by using a QR code.  Also I'd like to integrate YouTube recording is possible. </string>
     <string name="title_contact">Contact</string>
     <string name="title_route">Routes</string>
 </resources>

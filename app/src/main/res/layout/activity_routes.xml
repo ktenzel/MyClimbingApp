@@ -72,7 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Route"
-        android:id="@+id/findRestaurantsButton"
+        android:id="@+id/addRoutesButton"
         android:background="@color/colorAccent"
         android:textColor="@color/colorPrimary"
         android:layout_alignParentBottom="true"
