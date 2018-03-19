@@ -2,7 +2,8 @@
     <string name="app_name">MyClimbingApp</string>
     <string name="title_home">Home</string>
     <string name="title_about">About</string>
-    <string name="text_about">This app is meant to let climbers record the climbs that they have done.  I am hoping to add an API of local outdoor routes, and possible a way for local gyms to allow visitors to quickly record set routes, maybe by using a QR code.  Also I'd like to integrate YouTube recording is possible. </string>
+    <string name="text_about">This app is meant to let climbers record the climbs that they have done.</string>
+    <string name="text_about_Future">I am hoping to add an API of local outdoor routes, and possible a way for local gyms to allow visitors to quickly record set routes, maybe by using a QR code.  Also I'd like to integrate YouTube recording if possible and possibly an instagram gallery. </string>
     <string name="title_contact">Contact</string>
     <string name="text_contact">About the author: Kyle Tenzeldam, I am currently attending Epicodus in Portland Oregon and working in the Java/Android track training to become and Junior Developer. </string>
     <string name="text_email">To contact please email: ktenzel@gmail.com</string>

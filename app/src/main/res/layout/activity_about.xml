@@ -34,5 +34,11 @@
         android:textColor="@color/colorTextIcons"
         android:textSize="10sp"
         />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_about_Future"
+        android:textColor="#fff"
+        android:layout_below="@id/appAboutText"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>
