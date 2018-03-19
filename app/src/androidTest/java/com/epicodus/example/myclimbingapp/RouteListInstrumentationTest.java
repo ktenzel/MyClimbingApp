@@ -16,15 +16,18 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class RouteListInstrumentationTest {
     @Rule
-    public ActivityTestRule<RouteListActivity> activityTestRule =
-            new ActivityTestRule<>(RouteListActivity.class);
+    public ActivityTestRule<MainActivity> activityTestRule =
+            new ActivityTestRule<>(MainActivity.class);
 
     @Test
     public void validateEditText() {
+        String name = "Red V1";
+        String location = "Circuit";
+        String grade = "V1";
         onView(withId(R.id.routesButton)).perform(click());
-        onView(withId(R.id.routeNameEditText)).perform(typeText("Red V1"));
-        onView(withId(R.id.routeLocationEditText)).perform(typeText("Circuit"));
-        onView(withId(R.id.routeGradeEditText)).perform(typeText("V1"));
+        onView(withId(R.id.routeNameEditText)).perform(typeText(name));
+        onView(withId(R.id.routeLocationEditText)).perform(typeText(location));
+        onView(withId(R.id.routeGradeEditText)).perform(typeText(grade));
         onView(withId(R.id.addRoutesButton)).perform(click());
         onView(withId(R.id.newRouteTextView)).check(matches(withText("Route name: Red V1 Location: Circuit Grade: V1")));
     }
