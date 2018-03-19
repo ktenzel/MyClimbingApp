@@ -1,9 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.example.myclimbingapp.ContactActivity">
+    tools:context="com.epicodus.example.myclimbingapp.ContactActivity"
+    android:background="#000">
+    <TextView
+        android:id="@+id/appContactTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_contact"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="0dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appContactTextView"
+        android:text="@string/text_contact"
+        android:textColor="#fff"
+        android:id="@+id/contactText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/text_email"
+        android:textColor="#fff" />
+</RelativeLayout>
