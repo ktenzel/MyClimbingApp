@@ -19,23 +19,29 @@
         tools:layout_editor_absoluteX="185dp"
         tools:layout_editor_absoluteY="0dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/newRouteTextView"
-        android:text="My Newest Route:  "
-        android:layout_below="@+id/routeListTitle"
-        android:textColor="@color/colorTextIcons"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+
+
 
     <ListView
-        android:padding="10sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/listView"
-        android:layout_below="@+id/newRouteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="471dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="#fff"
+        android:padding="10sp"
+        android:textColor="#fff"/>
 
+    <TextView
+        android:id="@+id/newRouteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="My Newest Route:  "
+        android:textColor="#fff"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="476dp"
+        android:layout_below="@+id/listView"
+        android:background="#000000"/>
 </RelativeLayout>

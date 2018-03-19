@@ -32,7 +32,7 @@ public class RouteListActivity extends AppCompatActivity {
         mNewRouteTextView = (TextView) findViewById(R.id.newRouteTextView);
 
         MyRoutesArrayAdapter adapter = new MyRoutesArrayAdapter(this, android.R.layout.simple_list_item_1, name, location, grade); //must match constructor!
-
+        mListView.setAdapter(adapter);
 
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
         mRouteListTitleTextView.setTypeface(baseFont);
@@ -41,6 +41,6 @@ public class RouteListActivity extends AppCompatActivity {
         String name = intent.getStringExtra("name");
         String location = intent.getStringExtra("location");
         String grade = intent.getStringExtra("grade");
-        mNewRouteTextView.setText(name + " at " + location + " Grade: " + grade);
+        mNewRouteTextView.setText("Route name: " + name + " Location: " + location + " Grade: " + grade);
     }
 }

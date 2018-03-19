@@ -3,9 +3,6 @@ package com.epicodus.example.myclimbingapp;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
-/**
- * Created by Kyle on 3/17/2018.
- */
 
 public class MyRoutesArrayAdapter extends ArrayAdapter {
     private Context mContext;
@@ -26,7 +23,7 @@ public class MyRoutesArrayAdapter extends ArrayAdapter {
         String name = mNames[position];
         String location = mLocations[position];
         String grades = mGrades[position];
-        return String.format("%s \n %s \n %s", name, location, grades);
+        return String.format("Route name: %s \n Location: %s \n Grade: %s", name, location, grades);
     }
 
     @Override
