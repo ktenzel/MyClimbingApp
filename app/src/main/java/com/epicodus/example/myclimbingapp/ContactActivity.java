@@ -15,7 +15,7 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_contact);
         ButterKnife.bind(this);
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
         mContactNameTextView.setTypeface(baseFont);
