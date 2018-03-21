@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,12 +42,15 @@ public class RoutesActivity extends AppCompatActivity implements View.OnClickLis
             String name = mRouteNameEditText.getText().toString();
             String location = mRouteLocationEditText.getText().toString();
             String grade = mRouteGradeEditText.getText().toString();
-
-            Intent intent = new Intent(RoutesActivity.this, RouteListActivity.class);
-            intent.putExtra("name", name);
-            intent.putExtra("location", location);
-            intent.putExtra("grade", grade);
-            startActivity(intent);
+            if(name.length() <= 1 || location.length() <= 1 || grade.length() <= 1){
+                Toast.makeText(RoutesActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(RoutesActivity.this, RouteListActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("location", location);
+                intent.putExtra("grade", grade);
+                startActivity(intent);
+            }
         }
     }
 }
