@@ -1,5 +1,7 @@
 package com.epicodus.example.myclimbingapp.services;
 
+import android.util.Log;
+
 import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.models.LatLng;
 
@@ -17,6 +19,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static java.lang.String.valueOf;
+
 
 public class GoogleService {
 
@@ -24,8 +28,8 @@ public class GoogleService {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GOOGLE_BASE_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.GOOGLE_LOCATION_QUERY_PARAMETER, location);
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.GOOGLE_BASE_URL + location).newBuilder();
+//        urlBuilder.addQueryParameter(Constants.GOOGLE_LOCATION_PARAMETER, Constants.GOOGLE_TOKEN);
         String url = urlBuilder.build().toString();
 
         Request request= new Request.Builder()
@@ -35,11 +39,11 @@ public class GoogleService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
+        Log.d(url, "url");
     }
 
     public ArrayList<LatLng> processResults(Response response) {
         ArrayList<LatLng> latslngs = new ArrayList<>();
-
         try{
             String jsonData = response.body().string();
             JSONObject googleJSON = new JSONObject(jsonData);
@@ -48,7 +52,8 @@ public class GoogleService {
                 JSONObject latlngJSON = locationJSON.getJSONObject(i);
                 double latitude = (double) latlngJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lat");
                 double longitude = (double) latlngJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lng");
-
+                String stringLatitude = valueOf(latitude);
+                Log.d(stringLatitude, "latitude");
                 LatLng latlng = new LatLng(latitude, longitude);
                 latslngs.add(latlng);
             }

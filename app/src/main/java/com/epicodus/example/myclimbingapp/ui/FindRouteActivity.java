@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.epicodus.example.myclimbingapp.R;
 
@@ -37,9 +38,13 @@ public class FindRouteActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         if (v == mFindRouteButton) {
             String location = mLocationEditText.getText().toString();
-            Intent intent = new Intent(FindRouteActivity.this, FindRouteListActivity.class);
-            intent.putExtra("location", location);
-            startActivity(intent);
+            if(location.length() <= 1) {
+                Toast.makeText(FindRouteActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(FindRouteActivity.this, FindRouteListActivity.class);
+                intent.putExtra("location", location);
+                startActivity(intent);
+            }
         }
     }
 }

@@ -19,9 +19,9 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FindRouteListActivity extends AppCompatActivity {
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
-    private RestaurantListAdapter mAdapter;
+//    @BindView(R.id.recyclerView)
+//    RecyclerView mRecyclerView;
+//    private RestaurantListAdapter mAdapter;
     public ArrayList<LatLng> latslngs = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +43,17 @@ public class FindRouteListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 latslngs = googleService.processResults(response);
-                FindRouteListActivity.this.runOnUiThread(new Runnable() {
+//                FindRouteListActivity.this.runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void run() {
-                        mAdapter = new FindRouteListAdapter(getApplicationContext(), lonlat);
-                        mRecyclerView.LayoutMnanager layoutMnanager = new LinearLayoutManager(RestaurantsListActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
+//                    @Override
+//                    public void run() {
+//                        mAdapter = new FindRouteListAdapter(getApplicationContext(), lonlat);
+//                        mRecyclerView.LayoutMnanager layoutMnanager = new LinearLayoutManager(RestaurantsListActivity.this);
+//                        mRecyclerView.setLayoutManager(layoutManager);
+//                        mRecyclerView.setHasFixedSize(true);
 
-                    }
-                });
+//                    }
+//                });
             }
         });
     }
