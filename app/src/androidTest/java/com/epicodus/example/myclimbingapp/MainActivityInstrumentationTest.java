@@ -11,10 +11,6 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
-/**
- * Created by Kyle on 3/20/2018.
- */
-
 public class MainActivityInstrumentationTest {
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule =

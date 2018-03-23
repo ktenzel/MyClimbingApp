@@ -31,24 +31,71 @@
         tools:layout_editor_absoluteX="185dp"
         tools:layout_editor_absoluteY="0dp" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/contactButton"
-        android:text="Contact"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/aboutButton"
-        android:text="About"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/routesButton"
-        android:text="Routes"
-        android:layout_alignParentBottom="true"/>
+        android:layout_below="@+id/appNameTextView"
+        android:layout_marginTop="200sp">
+        <View android:id="@+id/strut"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="190sp"
+            android:layout_alignRight="@id/strut"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/routesButton"
+            android:text="My Routes"
+            android:alpha="0.7"/>
+        <Button
+            android:layout_below="@id/routesButton"
+            android:layout_height="190sp"
+            android:layout_width="0dp"
+            android:layout_alignRight="@id/strut"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/aboutButton"
+            android:text="About"
+            android:alpha="0.7"/>
+        <Button
+            android:layout_height="190sp"
+            android:layout_width="0dp"
+            android:layout_alignLeft="@id/strut"
+            android:layout_alignParentRight="true"
+            android:id="@+id/findRoutesButton"
+            android:text="Find Routes"
+            android:alpha="0.7"/>
+        <Button
+            android:layout_below="@+id/findRoutesButton"
+            android:layout_width="0dp"
+            android:layout_height="190sp"
+            android:layout_alignLeft="@id/strut"
+            android:layout_alignParentRight="true"
+            android:id="@+id/contactButton"
+            android:text="Contact"
+            android:alpha="0.7"/>
+    </RelativeLayout>
+
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/contactButton"-->
+        <!--android:text="Contact"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"/>-->
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/aboutButton"-->
+        <!--android:text="About"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"/>-->
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/routesButton"-->
+        <!--android:text="Routes"-->
+        <!--android:layout_alignParentBottom="true"/>-->
+
 </RelativeLayout>
