@@ -28,6 +28,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each {
+        it.buildConfigField 'String', 'GOOGLE_TOKEN', GoogleToken
+        it.buildConfigField 'String', 'MOUNTAIN_TOKEN', MountainToken
+    }
+
 }
 
 dependencies {

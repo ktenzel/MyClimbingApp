@@ -20,4 +20,25 @@
         tools:layout_editor_absoluteX="185dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <EditText
+        android:id="@+id/locationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/appFindRoutesTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
+        android:background="#FFF"
+        android:hint="Enter Location" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find Route"
+        android:id="@+id/findRoutesButton"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

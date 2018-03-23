@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.epicodus.example.myclimbingapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -46,7 +48,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.RouteListActivity" />
-        <activity android:name=".ui.FindRouteActivity"></activity>
+        <activity android:name=".ui.FindRouteActivity" />
+        <activity android:name=".ui.FindRouteListActivity"></activity>
     </application>
 
 </manifest>
