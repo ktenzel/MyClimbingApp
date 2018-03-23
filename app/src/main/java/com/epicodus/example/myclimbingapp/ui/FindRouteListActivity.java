@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.example.myclimbingapp.R;
+import com.epicodus.example.myclimbingapp.models.LatLng;
 import com.epicodus.example.myclimbingapp.services.GoogleService;
 
 import java.io.IOException;
@@ -18,7 +19,10 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FindRouteListActivity extends AppCompatActivity {
-
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
+    private RestaurantListAdapter mAdapter;
+    public ArrayList<LatLng> latslngs = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,23 +30,21 @@ public class FindRouteListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
+
         getLatLon(location);
     }
 
     private void getLatLon(String location){
         final GoogleService googleService = new GoogleService();
-        googleService.findLatLon(location, new Callback() {
+        googleService.findLatLng(location, new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    e.printStackTrace();
-                }
+            public void onFailure(Call call, IOException e) {e.printStackTrace();}
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                lonlat = googleService.processResults(response);
+                latslngs = googleService.processResults(response);
                 FindRouteListActivity.this.runOnUiThread(new Runnable() {
+
                     @Override
                     public void run() {
                         mAdapter = new FindRouteListAdapter(getApplicationContext(), lonlat);

@@ -3,13 +3,13 @@ package com.epicodus.example.myclimbingapp.models;
 import org.parceler.Parcel;
 
 @Parcel
-public class LonLat {
+public class LatLng {
     double lat;
     double lon;
 
-    public LonLat() {}
+    public LatLng() {}
 
-    public LatLon(double lat, double lon){
+    public LatLng(double lat, double lon){
 
         this.lat = lat;
         this.lon = lon;
