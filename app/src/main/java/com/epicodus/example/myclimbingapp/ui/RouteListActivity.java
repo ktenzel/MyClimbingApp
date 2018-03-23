@@ -1,4 +1,4 @@
-package com.epicodus.example.myclimbingapp;
+package com.epicodus.example.myclimbingapp.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.epicodus.example.myclimbingapp.R;
+import com.epicodus.example.myclimbingapp.adapters.MyRoutesArrayAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

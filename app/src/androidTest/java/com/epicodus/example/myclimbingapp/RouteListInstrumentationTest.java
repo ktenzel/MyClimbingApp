@@ -2,6 +2,8 @@ package com.epicodus.example.myclimbingapp;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.epicodus.example.myclimbingapp.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.epicodus.example.myclimbingapp;
+package com.epicodus.example.myclimbingapp.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

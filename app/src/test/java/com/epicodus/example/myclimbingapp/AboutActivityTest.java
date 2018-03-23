@@ -3,6 +3,8 @@ package com.epicodus.example.myclimbingapp;
 import android.os.Build;
 import android.widget.TextView;
 
+import com.epicodus.example.myclimbingapp.ui.AboutActivity;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
