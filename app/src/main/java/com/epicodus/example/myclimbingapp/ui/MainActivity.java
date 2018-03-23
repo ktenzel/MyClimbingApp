@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   Button mAboutButton;
   @BindView(R.id.contactButton)
   Button mContactButton;
+  @BindView(R.id.findRoutesButton)
+  Button mFindRoutesButton;
   @BindView(R.id.appNameTextView)
   TextView mAppNameTextView;
 
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRoutesButton.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
         mContactButton.setOnClickListener(this);
+        mFindRoutesButton.setOnClickListener(this);
     }
 
 
@@ -49,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (v == mContactButton) {
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
+        }
+        if (v == mFindRoutesButton){
+            Intent intent = new Intent(MainActivity.this, FindRouteActivity.class);
             startActivity(intent);
         }
     }

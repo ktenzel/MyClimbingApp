@@ -35,4 +35,10 @@ public class MainActivityInstrumentationTest {
         onView(withId(R.id.contactButton)).perform(click());
         onView(withId(R.id.appContactTextView)).check(matches(withText("Contact")));
     }
+
+    @Test
+    public void validateFindRoutesButton() {
+        onView(withId(R.id.findRoutesButton)).perform(click());
+        onView(withId(R.id.appFindRoutesTitle)).check(matches(withText("Find Routes")));
+    }
 }
