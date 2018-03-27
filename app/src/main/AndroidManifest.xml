@@ -49,7 +49,7 @@
         </activity>
         <activity android:name=".ui.RouteListActivity" />
         <activity android:name=".ui.FindRouteActivity" />
-        <activity android:name=".ui.FindRouteListActivity"></activity>
+        <activity android:name=".ui.FindRouteListActivity" />
     </application>
 
 </manifest>

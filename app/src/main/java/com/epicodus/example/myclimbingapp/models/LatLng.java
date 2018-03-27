@@ -6,7 +6,6 @@ import org.parceler.Parcel;
 public class LatLng {
     double lat;
     double lon;
-
     public LatLng() {}
 
     public LatLng(double lat, double lon){
@@ -17,4 +16,5 @@ public class LatLng {
 
     public double getLat() {return lat;}
     public double getLon() {return lon;}
+
 }

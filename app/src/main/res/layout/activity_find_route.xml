@@ -31,6 +31,28 @@
         android:background="#FFF"
         android:hint="Enter Location" />
 
+    <!--<EditText-->
+        <!--android:id="@+id/latitudeEditText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="20dp"-->
+        <!--android:layout_below="@+id/appFindRoutesTitle"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="9dp"-->
+        <!--android:background="#FFF"-->
+        <!--android:hint="Enter Latitude" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/longitudeEditText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="20dp"-->
+        <!--android:layout_below="@+id/latitudeEditText"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_marginTop="9dp"-->
+        <!--android:background="#FFF"-->
+        <!--android:hint="Enter Longitude" />-->
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
