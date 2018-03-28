@@ -3,11 +3,13 @@ package com.epicodus.example.myclimbingapp.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.epicodus.example.myclimbingapp.models.LatLng;
 import com.epicodus.example.myclimbingapp.models.Route;
 import com.epicodus.example.myclimbingapp.services.GoogleService;
 import com.epicodus.example.myclimbingapp.services.MountainService;
+import com.epicodus.example.myclimbingapp.services.RoutesService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +24,6 @@ public class FindRouteListActivity extends AppCompatActivity {
 //    RecyclerView mRecyclerView;
     String stringLatLng;
     public ArrayList<Route> routes = new ArrayList<>();
-//    public ArrayList<LatLng> latslngs = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,18 +36,27 @@ public class FindRouteListActivity extends AppCompatActivity {
     }
 
     private void getLatLon(String location){
-        final GoogleService googleService = new GoogleService();
-        final MountainService mountainService = new MountainService();
-        googleService.findLatLng(location, new Callback() {
+        final RoutesService routesService = new RoutesService();
+        routesService.findLatLng(location, new Callback() {
+
             @Override
             public void onFailure(Call call, IOException e) {e.printStackTrace();}
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-//                latslngs = googleService.processResults(response);
 
-                stringLatLng = googleService.processResults(response);
-                routes = mountainService.processResults(stringLatLng);
+                stringLatLng = routesService.processGoogleResults(response);
+
+                routesService.findRoutes(stringLatLng, new Callback(){
+
+                    @Override
+                    public void onFailure(Call call, IOException e) {e.printStackTrace();}
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        routes = routesService.processMountainResults(response);
+                    }
+                });
 //                FindRouteListActivity.this.runOnUiThread(new Runnable() {
 
 //                    @Override

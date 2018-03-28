@@ -23,8 +23,7 @@ import okhttp3.Response;
 import static java.lang.String.valueOf;
 
 public class RoutesService {
-
-    public String stringLatLng;
+    String stringLatLng;
     public static void findLatLng(String location, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
@@ -39,7 +38,7 @@ public class RoutesService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
-        Log.d(url, "url");
+        Log.d(url, "url Google");
     }
 
     public static void findRoutes(String stringLatLng, Callback callback){
@@ -56,7 +55,7 @@ public class RoutesService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
-        Log.d(url, "url");
+        Log.d(url, "url mountain");
     }
 
     public String processGoogleResults(Response response){
@@ -74,7 +73,7 @@ public class RoutesService {
 
                 Log.d(stringLatitude, "latitude");
                 Log.d(stringLongitude, "longitude");
-                String stringLatLng = "lat=" + stringLatitude + "&lon=" + stringLongitude;
+                stringLatLng = "lat=" + stringLatitude + "&lon=" + stringLongitude;
                 Log.d(stringLatLng, "stringLatLng: ");
 
 
@@ -103,9 +102,9 @@ public class RoutesService {
                 double longitude = (double) listJSON.getDouble("longitude");
                 String stringLatitude = valueOf(latitude);
                 String stringLongitude = valueOf(longitude);
-                Log.d(stringLatitude, "latitude");
+                Log.d(stringLatitude, "latitude mountain");
 
-                Log.d(stringLongitude, "longitude");
+                Log.d(stringLongitude, "longitude mountain");
 
 
                 Route route = new Route(name, imgMedium, rating, latitude, longitude);
