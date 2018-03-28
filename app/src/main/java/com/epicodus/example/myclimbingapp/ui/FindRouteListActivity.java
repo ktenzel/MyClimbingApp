@@ -3,8 +3,10 @@ package com.epicodus.example.myclimbingapp.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 
+import com.epicodus.example.myclimbingapp.adapters.FindRouteListAdapter;
 import com.epicodus.example.myclimbingapp.models.LatLng;
 import com.epicodus.example.myclimbingapp.models.Route;
 import com.epicodus.example.myclimbingapp.services.GoogleService;
@@ -20,8 +22,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FindRouteListActivity extends AppCompatActivity {
-    //    @BindView(R.id.recyclerView)
-//    RecyclerView mRecyclerView;
+        @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
     String stringLatLng;
     public ArrayList<Route> routes = new ArrayList<>();
     @Override
@@ -57,17 +59,17 @@ public class FindRouteListActivity extends AppCompatActivity {
                         routes = routesService.processMountainResults(response);
                     }
                 });
-//                FindRouteListActivity.this.runOnUiThread(new Runnable() {
+                FindRouteListActivity.this.runOnUiThread(new Runnable() {
 
-//                    @Override
-//                    public void run() {
-//                        mAdapter = new FindRouteListAdapter(getApplicationContext(), lonlat);
-//                        mRecyclerView.LayoutMnanager layoutMnanager = new LinearLayoutManager(RestaurantsListActivity.this);
-//                        mRecyclerView.setLayoutManager(layoutManager);
-//                        mRecyclerView.setHasFixedSize(true);
+                    @Override
+                    public void run() {
+                        mAdapter = new FindRouteListAdapter(getApplicationContext(), routes);
+                        mRecyclerView.LayoutMnanager layoutMnanager = new LinearLayoutManager(RestaurantsListActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
 
-//                    }
-//                });
+                    }
+                });
             }
         });
     }

@@ -44,7 +44,7 @@ public class RoutesActivity extends AppCompatActivity implements View.OnClickLis
             String name = mRouteNameEditText.getText().toString();
             String location = mRouteLocationEditText.getText().toString();
             String grade = mRouteGradeEditText.getText().toString();
-            if(name.length() <= 1 || location.length() <= 1 || grade.length() <= 1){
+            if(name.length() < 1 || location.length() < 1 || grade.length() < 1){
                 Toast.makeText(RoutesActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
             } else {
                 Intent intent = new Intent(RoutesActivity.this, RouteListActivity.class);
