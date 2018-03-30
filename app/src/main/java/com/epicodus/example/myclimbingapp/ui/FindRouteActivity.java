@@ -15,12 +15,12 @@ import com.epicodus.example.myclimbingapp.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FindRouteActivity extends AppCompatActivity implements View.OnClickListener{
+public class FindRouteActivity {
     @BindView(R.id.findRoutesButton)
     Button mFindRouteButton;
 
-    @BindView(R.id.locationEditText)
-    EditText mLocationEditText;
+//    @BindView(R.id.locationEditText)
+//    EditText mLocationEditText;
 
 //    @BindView(R.id.longitudeEditText)
 //    EditText mLongitudeEditText;
@@ -28,37 +28,37 @@ public class FindRouteActivity extends AppCompatActivity implements View.OnClick
 //    @BindView(R.id.latitudeEditText)
 //    EditText mLatitudeEditText;
 
-    @BindView(R.id.appFindRoutesTitle)
-    TextView mAppFindRoutesTitle;
+//    @BindView(R.id.appFindRoutesTitle)
+//    TextView mAppFindRoutesTitle;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_route);
-        ButterKnife.bind(this);
-        Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
-        mAppFindRoutesTitle.setTypeface(baseFont);
-
-        mFindRouteButton.setOnClickListener(this);
-
-    }
-    @Override
-    public void onClick(View v) {
-        if (v == mFindRouteButton) {
-//            String longitude = mLongitudeEditText.getText().toString();
-//            String latitude = mLatitudeEditText.getText().toString();
-            String location = mLocationEditText.getText().toString();
-
-//            if(longitude.length() <= 1 || latitude.length() <= 1) {
-                if(location.length() <= 1){
-                Toast.makeText(FindRouteActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
-            } else {
-                Intent intent = new Intent(FindRouteActivity.this, FindRouteListActivity.class);
-//                intent.putExtra("longitude", longitude);
-//                intent.putExtra("latitude", latitude);
-                    intent.putExtra("location", location);
-                startActivity(intent);
-            }
-        }
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_find_route);
+//        ButterKnife.bind(this);
+//        Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
+//        mAppFindRoutesTitle.setTypeface(baseFont);
+//
+//        mFindRouteButton.setOnClickListener(this);
+//
+//    }
+//    @Override
+//    public void onClick(View v) {
+//        if (v == mFindRouteButton) {
+////            String longitude = mLongitudeEditText.getText().toString();
+////            String latitude = mLatitudeEditText.getText().toString();
+////            String location = mLocationEditText.getText().toString();
+//
+////            if(longitude.length() <= 1 || latitude.length() <= 1) {
+//                if(location.length() <= 1){
+//                Toast.makeText(FindRouteActivity.this, "Please fill out all fields", Toast.LENGTH_LONG).show();
+//            } else {
+//                Intent intent = new Intent(FindRouteActivity.this, FindRouteListActivity.class);
+////                intent.putExtra("longitude", longitude);
+////                intent.putExtra("latitude", latitude);
+//                    intent.putExtra("location", location);
+//                startActivity(intent);
+//            }
+//        }
+//    }
 }

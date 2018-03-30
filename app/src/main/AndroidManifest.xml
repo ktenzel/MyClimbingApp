@@ -50,6 +50,7 @@
         <activity android:name=".ui.RouteListActivity" />
         <activity android:name=".ui.FindRouteActivity" />
         <activity android:name=".ui.FindRouteListActivity" />
+        <activity android:name=".ui.FindRouteDetailActivity"></activity>
     </application>
 
 </manifest>

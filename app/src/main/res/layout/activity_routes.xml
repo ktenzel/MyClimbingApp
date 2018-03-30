@@ -60,8 +60,8 @@
         android:layout_height="wrap_content"
         android:text="Add Route"
         android:id="@+id/addRoutesButton"
-        android:background="@color/colorAccent"
-        android:textColor="@color/colorPrimary"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/mainButtonText"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 </RelativeLayout>

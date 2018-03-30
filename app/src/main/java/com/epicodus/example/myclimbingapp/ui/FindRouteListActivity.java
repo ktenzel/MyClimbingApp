@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import android.support.v7.widget.LinearLayoutManager;
+import com.epicodus.example.myclimbingapp.R;
 import com.epicodus.example.myclimbingapp.adapters.FindRouteListAdapter;
 import com.epicodus.example.myclimbingapp.models.LatLng;
 import com.epicodus.example.myclimbingapp.models.Route;
@@ -22,10 +25,12 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FindRouteListActivity extends AppCompatActivity {
-        @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     String stringLatLng;
     public ArrayList<Route> routes = new ArrayList<>();
+    private FindRouteListAdapter mAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,7 +69,7 @@ public class FindRouteListActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         mAdapter = new FindRouteListAdapter(getApplicationContext(), routes);
-                        mRecyclerView.LayoutMnanager layoutMnanager = new LinearLayoutManager(RestaurantsListActivity.this);
+                        mRecyclerView.LayoutManager layoutMnanager = new LinearLayoutManager(FindRouteListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
 

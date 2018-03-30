@@ -82,5 +82,6 @@
             android:background="@drawable/button_border"
             android:textColor="@color/mainButtonText"
             android:text="Contact"/>
+
     </RelativeLayout>
 </RelativeLayout>

@@ -51,7 +51,9 @@ public class MountainService {
             for (int i = 0; i < routesJSON.length(); i++) {
                 JSONObject listJSON = routesJSON.getJSONObject(i);
                 String name = listJSON.getString("name");
+                String type = listJSON.getString("type");
                 String imgMedium = listJSON.getString("imgMedium");
+                String url = listJSON.getString("url");
                 String rating = listJSON.getString("rating");
                 double latitude = (double) listJSON.getDouble("latitude");
                 double longitude = (double) listJSON.getDouble("longitude");
@@ -62,7 +64,7 @@ public class MountainService {
                 Log.d(stringLongitude, "longitude");
 
 
-                Route route = new Route(name, imgMedium, rating, latitude, longitude);
+                Route route = new Route(name, type, imgMedium, url, rating, latitude, longitude);
                 routes.add(route);
             }
         }catch(IOException e){
