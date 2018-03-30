@@ -50,7 +50,9 @@
         <activity android:name=".ui.RouteListActivity" />
         <activity android:name=".ui.FindRouteActivity" />
         <activity android:name=".ui.FindRouteListActivity" />
-        <activity android:name=".ui.FindRouteDetailActivity"></activity>
+        <activity android:name=".ui.FindRouteDetailActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.CreateAccountActivity"></activity>
     </application>
 
 </manifest>

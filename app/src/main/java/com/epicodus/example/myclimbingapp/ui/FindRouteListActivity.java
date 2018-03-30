@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import android.support.v7.widget.LinearLayoutManager;
+
+import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
 import com.epicodus.example.myclimbingapp.adapters.FindRouteListAdapter;
 import com.epicodus.example.myclimbingapp.models.LatLng;
@@ -69,6 +71,7 @@ public class FindRouteListActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         mAdapter = new FindRouteListAdapter(getApplicationContext(), routes);
+                        mRecyclerView.setAdapter(mAdapter);
                         mRecyclerView.LayoutManager layoutMnanager = new LinearLayoutManager(FindRouteListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
@@ -77,5 +80,8 @@ public class FindRouteListActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+    private void addToSharedPreferences(String location) {
+        mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
 }

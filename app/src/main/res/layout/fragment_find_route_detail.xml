@@ -24,34 +24,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Route Name"
-                android:id="@+id/restaurantNameTextView"
+                android:id="@+id/routeNameTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4.5/5"
-                android:id="@+id/ratingTextView"
-                android:layout_alignTop="@+id/restaurantNameTextView"
+                android:text="V1"
+                android:id="@+id/routeRatingTextView"
+                android:layout_alignTop="@+id/routeNameTextView"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorPrimary"
                 android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Brunch, American"
-                android:id="@+id/cuisineTextView"
-                android:layout_below="@+id/restaurantNameTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textColor="@color/colorSecondaryText"
-                android:textStyle="italic" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -65,24 +53,37 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_above="@+id/saveRestaurantButton"
+                android:layout_above="@+id/saveRouteButton"
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp"/>
-
             <TextView
+                android:id="@+id/routeTypeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/locationTextView"
-                android:text="View Online"
-                android:id="@+id/websiteTextView"
-                android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
+                android:layout_above="@+id/websiteTextView"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/ic_timeline_white_24dp"
                 android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="Type"
                 android:textColor="@color/colorTextIcons"
                 android:textSize="15sp"
-                android:textStyle="bold"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/websiteTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/locationTextView"
                 android:layout_marginBottom="10dp"
-                android:gravity="center" />
+                android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:text="View Online"
+                android:textColor="@color/colorTextIcons"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/locationTextView"
@@ -105,7 +106,7 @@
                 android:id="@+id/saveRouteButton"
                 android:layout_alignParentBottom="true"
                 android:background="@color/colorAccent"
-                android:textColor="@color/colorTextIcons"
+                android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
         </RelativeLayout>
 </RelativeLayout>

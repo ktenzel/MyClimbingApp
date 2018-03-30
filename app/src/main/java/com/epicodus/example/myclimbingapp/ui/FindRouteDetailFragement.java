@@ -12,8 +12,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
 import com.epicodus.example.myclimbingapp.models.Route;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -25,12 +30,19 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
 
+    //image
     @BindView(R.id.routeImageView)ImageView mImageLabel;
+    //name
     @BindView(R.id.routeNameTextView) TextView mNameLabel;
-    @BindView(R.id.ratingTextView) TextView mRatingLabel;
+    //type
+    @BindView(R.id.routeTypeTextView) TextView mTypeLabel;
+    //rating
+    @BindView(R.id.routeRatingTextView) TextView mRatingLabel;
+    //url
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
+    //latitude, longitude
     @BindView(R.id.locationTextView) TextView mLocationLabel;
-    @BindView(R.id.saveRouteButton) TextView mSaveRestaurantButton;
+    @BindView(R.id.saveRouteButton) TextView mSaveRouteButton;
 
     private Route mRoute;
 
@@ -60,13 +72,14 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
                 .into(mImageLabel);
 
         mNameLabel.setText(mRoute.getName());
+        mTypeLabel.setText(mRoute.getType());
         mRatingLabel.setText(mRoute.getRating());
         mLocationLabel.setText("Lat: " + Double.toString(mRoute.getLatitude()) + " Lon: " + Double.toString(mRoute.getLongitude()));
 
         mWebsiteLabel.setOnClickListener(this);
 
 
-        mSaveRestaurantButton.setOnClickListener(this);
+        mSaveRouteButton.setOnClickListener(this);
 
         return view;
     }
@@ -74,22 +87,17 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
     public void onClick(View v) {
         if (v == mWebsiteLabel) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mRestaurant.getWebsite()));
+                    Uri.parse(mRoute.getUrl()));
             startActivity(webIntent);
         }
-        if (v == mPhoneLabel) {
-            Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
-                    Uri.parse("tel:" + mRestaurant.getPhone()));
-            startActivity(phoneIntent);
-        }
-        if (v == mAddressLabel) {
+        if (v == mLocationLabel) {
             Intent mapIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("geo:" + mRestaurant.getLatitude()
-                            + "," + mRestaurant.getLongitude()
-                            + "?q=(" + mRestaurant.getName() + ")"));
+                    Uri.parse("geo:" + mRoute.getLatitude()
+                            + "," + mRoute.getLongitude()
+                            + "?q=(" + mRoute.getName() + ")"));
             startActivity(mapIntent);
         }
-        if (v == mSaveRestaurantButton) {
+        if (v == mSaveRouteButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
@@ -100,8 +108,8 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
 
             DatabaseReference pushRef = restaurantRef.push();
             String pushId = pushRef.getKey();
-            mRestaurant.setPushId(pushId);
-            pushRef.setValue(mRestaurant);
+            mRoute.setPushId(pushId);
+            pushRef.setValue(mRoute);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }

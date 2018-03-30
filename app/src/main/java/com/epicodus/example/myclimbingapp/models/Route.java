@@ -11,6 +11,7 @@ public class Route {
     String url;
     double latitude;
     double longitude;
+    private String pushId;
 
 
     public Route() {}
@@ -32,4 +33,12 @@ public class Route {
     public String getUrl() { return url; }
     public double getLatitude() { return latitude; }
     public double getLongitude() { return longitude; }
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
 }

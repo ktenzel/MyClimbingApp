@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "506746419810",
+    "firebase_url": "https://myclimbingapp-7c0e2.firebaseio.com",
+    "project_id": "myclimbingapp-7c0e2",
+    "storage_bucket": "myclimbingapp-7c0e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506746419810:android:fd61712e328abc67",
+        "android_client_info": {
+          "package_name": "com.epicodus.example.myclimbingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506746419810-j10pk8gjebilftk8u71ajaum7ka9p8sd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.example.myclimbingapp",
+            "certificate_hash": "bbbca827c09ae0bba9edfbbd4b7bf774c3db7d6a"
+          }
+        },
+        {
+          "client_id": "506746419810-u3bi03du1b57qo962brcje6f3cr29poq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZvjoks4Cy1Hi6wHitXRYdGE8lNHXSmPA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506746419810-u3bi03du1b57qo962brcje6f3cr29poq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
