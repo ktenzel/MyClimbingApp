@@ -1,27 +1,31 @@
 package com.epicodus.example.myclimbingapp.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.SearchView;
 
-import android.support.v7.widget.LinearLayoutManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
 import com.epicodus.example.myclimbingapp.adapters.FindRouteListAdapter;
-import com.epicodus.example.myclimbingapp.models.LatLng;
+
 import com.epicodus.example.myclimbingapp.models.Route;
-import com.epicodus.example.myclimbingapp.services.GoogleService;
-import com.epicodus.example.myclimbingapp.services.MountainService;
 import com.epicodus.example.myclimbingapp.services.RoutesService;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -31,7 +35,9 @@ public class FindRouteListActivity extends AppCompatActivity {
     String stringLatLng;
     public ArrayList<Route> routes = new ArrayList<>();
     private FindRouteListAdapter mAdapter;
-
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +48,44 @@ public class FindRouteListActivity extends AppCompatActivity {
         String location = intent.getStringExtra("location");
 
         getLatLon(location);
-    }
 
+        getLatLon(location);
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+
+        if(mRecentAddress != null){
+            getLatLon(mRecentAddress);
+        }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getLatLon(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+
+        });
+        return true;
+    }
     private void getLatLon(String location){
         final RoutesService routesService = new RoutesService();
         routesService.findLatLng(location, new Callback() {
@@ -72,7 +114,7 @@ public class FindRouteListActivity extends AppCompatActivity {
                     public void run() {
                         mAdapter = new FindRouteListAdapter(getApplicationContext(), routes);
                         mRecyclerView.setAdapter(mAdapter);
-                        mRecyclerView.LayoutManager layoutMnanager = new LinearLayoutManager(FindRouteListActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FindRouteListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
 
