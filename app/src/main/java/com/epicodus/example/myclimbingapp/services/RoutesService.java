@@ -70,11 +70,7 @@ public class RoutesService {
                 double longitude = (double) latlngJSON.getJSONObject("geometry").getJSONObject("location").getDouble("lng");
                 String stringLatitude = valueOf(latitude);
                 String stringLongitude = valueOf(longitude);
-
-                Log.d(stringLatitude, "latitude");
-                Log.d(stringLongitude, "longitude");
                 stringLatLng = "lat=" + stringLatitude + "&lon=" + stringLongitude;
-                Log.d(stringLatLng, "stringLatLng: ");
 
 
             }

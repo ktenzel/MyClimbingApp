@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if (v == mFindRoutesButton){
-            Intent intent = new Intent(MainActivity.this, FindRouteActivity.class);
+            Intent intent = new Intent(MainActivity.this, FindRouteListActivity.class);
             startActivity(intent);
         }
     }
