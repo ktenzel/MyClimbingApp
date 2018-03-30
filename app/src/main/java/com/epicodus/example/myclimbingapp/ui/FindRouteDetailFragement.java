@@ -103,7 +103,7 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
 
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_RESTAURANTS)
+                    .getReference(Constants.FIREBASE_CHILD_ROUTES)
                     .child(uid);
 
             DatabaseReference pushRef = restaurantRef.push();
