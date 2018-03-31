@@ -31,23 +31,24 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class FindRouteListActivity extends AppCompatActivity {
-    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
-    String stringLatLng;
-    public ArrayList<Route> routes = new ArrayList<>();
-    private FindRouteListAdapter mAdapter;
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
     private String mRecentAddress;
 
+
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    String stringLatLng;
+    private FindRouteListAdapter mAdapter;
+    public ArrayList<Route> routes = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_find_route);
+        ButterKnife.bind(this);
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-
-        getLatLon(location);
 
         getLatLon(location);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -61,7 +62,6 @@ public class FindRouteListActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_search, menu);
-        ButterKnife.bind(this);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mSharedPreferences.edit();
@@ -89,6 +89,7 @@ public class FindRouteListActivity extends AppCompatActivity {
     private void getLatLon(String location){
         final RoutesService routesService = new RoutesService();
         routesService.findLatLng(location, new Callback() {
+
 
             @Override
             public void onFailure(Call call, IOException e) {e.printStackTrace();}

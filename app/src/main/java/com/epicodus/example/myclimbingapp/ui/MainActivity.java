@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
     @BindView(R.id.routesButton) Button mRoutesButton;
     @BindView(R.id.aboutButton) Button mAboutButton;
     @BindView(R.id.contactButton) Button mContactButton;
@@ -112,4 +113,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
     }
-};
+}

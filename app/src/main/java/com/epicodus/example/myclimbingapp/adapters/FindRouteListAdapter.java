@@ -51,7 +51,7 @@ public class FindRouteListAdapter extends RecyclerView.Adapter<FindRouteListAdap
 
     public class FindRouteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.routeImageView)
-        ImageView mRestaurantImageView;
+        ImageView mRouteImageView;
         @BindView(R.id.routeNameTextView)
         TextView mNameTextView;
         @BindView(R.id.ratingTextView) TextView mRatingTextView;
@@ -67,7 +67,7 @@ public class FindRouteListAdapter extends RecyclerView.Adapter<FindRouteListAdap
         }
 
         public void bindRoute(Route route) {
-            Picasso.with(mContext).load(route.getImgMedium()).into(mRestaurantImageView);
+            Picasso.with(mContext).load(route.getImgMedium()).into(mRouteImageView);
             mNameTextView.setText(route.getName());
             mRatingTextView.setText("Rating: " + route.getRating());
         }
