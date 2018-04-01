@@ -20,6 +20,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.epicodus.example.myclimbingapp.Constants.MOUNTAIN_TOKEN;
 import static java.lang.String.valueOf;
 
 public class RoutesService {
@@ -45,12 +46,12 @@ public class RoutesService {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOUNTAIN_BASE_URL + stringLatLng + "&maxDistance=10&key=200235927-f6767fd8062816c821012067218f5bab").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOUNTAIN_BASE_URL + stringLatLng + "&maxDistance=10&key=" + MOUNTAIN_TOKEN).newBuilder();
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
                 .url(url)
-                .header("Authorization", Constants.MOUNTAIN_TOKEN)
+                .header("Authorization", MOUNTAIN_TOKEN)
                 .build();
 
         Call call = client.newCall(request);

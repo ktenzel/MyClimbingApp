@@ -77,8 +77,7 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
         mLocationLabel.setText("Lat: " + Double.toString(mRoute.getLatitude()) + " Lon: " + Double.toString(mRoute.getLongitude()));
 
         mWebsiteLabel.setOnClickListener(this);
-
-
+        mLocationLabel.setOnClickListener(this);
         mSaveRouteButton.setOnClickListener(this);
 
         return view;

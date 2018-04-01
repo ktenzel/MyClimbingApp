@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mRoutesButton) {
-            Intent intent = new Intent(MainActivity.this, RoutesActivity.class);
+            Intent intent = new Intent(MainActivity.this, SavedRoutesListActivity.class);
             startActivity(intent);
         }
         if (v == mAboutButton) {

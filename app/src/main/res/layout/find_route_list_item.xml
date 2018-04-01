@@ -11,7 +11,7 @@
         android:id="@+id/routeImageView"
         android:background="@drawable/hero"
         android:scaleType="centerCrop"
-        android:alpha="0.8"/>
+        android:alpha="0.8" />
 
     <LinearLayout
         android:layout_height="150dp"
@@ -32,7 +32,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="Route Name"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/colorPrimary"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:id="@+id/ratingTextView"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/colorPrimary"/>
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

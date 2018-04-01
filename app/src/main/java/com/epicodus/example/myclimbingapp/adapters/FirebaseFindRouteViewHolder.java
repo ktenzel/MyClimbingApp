@@ -58,7 +58,7 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
         String uid = user.getUid();
 
         final ArrayList<Route> routes = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESTAURANTS).child(uid);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_ROUTES).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
