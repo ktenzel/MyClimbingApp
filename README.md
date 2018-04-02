@@ -6,7 +6,7 @@
 
 
 ## Description
-This app's  intended use is to record climbing routes and add them to a user's profile where they can be shared with other users.
+This app's intended use is to record climbing routes and add them to a user's profile where they can be shared with other users.
 
 ## Setup/Installation Requirements
 
@@ -17,14 +17,14 @@ Set up Emulator (I user Nexus 6 with API 23 Marshmallow)
 *The Emulator can be resource intensive and can take up to 5ghs of space on your machine and 2ghs of ram.
 
 ## Known Bugs
-app duplicated itself in the Emulator at one point.
+app pulls data from both api's in the log but not to the FindRouteList.
 
 ## Future additions
-I want to update the navigation to a side menu or a navigation bar on the bottom. I still need to set up user profiles and have routes save to those profiles. I'd like to add YouTube, Instagram interactions with the app.
+I want to update the navigation to a side menu or a navigation bar on the bottom. I'd like to add the ability to organize trips with other users. 
 
 ## Technologies Used
 
-JAVA, Android Studio, XML
+JAVA, Android Studio, XML, Google Location API, Moutain Project API
 
 
 ### License
