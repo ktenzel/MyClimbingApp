@@ -57,6 +57,7 @@ public class RoutesService {
         Call call = client.newCall(request);
         call.enqueue(callback);
         Log.d(url, "url mountain");
+        Log.d(request.toString(), "request");
     }
 
     public String processGoogleResults(Response response){

@@ -1,5 +1,4 @@
 package com.epicodus.example.myclimbingapp.ui;
-
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FindRouteDetailActivity extends AppCompatActivity {
-    @BindView(R.id.viewPager)
-    ViewPager mViewPager;
+    @BindView(R.id.viewPager) ViewPager mViewPager;
     private FindRoutePagerAdapter adapterViewPager;
     ArrayList<Route> mRoutes = new ArrayList<>();
 

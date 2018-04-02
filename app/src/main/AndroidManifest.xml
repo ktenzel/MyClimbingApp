@@ -6,49 +6,40 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/carabiner"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.ContactActivity"
             android:theme="@style/NoActionBarTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.RoutesActivity"
             android:theme="@style/NoActionBarTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ui.AboutActivity"
             android:theme="@style/NoActionBarTheme">
+        </activity>
+        <activity android:name=".ui.RouteListActivity" />
+        <activity android:name=".ui.FindRouteListActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ui.MainActivity" />
+        </activity>
+        <activity android:name=".ui.FindRouteDetailActivity" />
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.RouteListActivity" />
-        <activity android:name=".ui.FindRouteListActivity" />
-        <activity android:name=".ui.FindRouteDetailActivity" />
-        <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.CreateAccountActivity" />
         <activity android:name=".ui.SavedRoutesListActivity"></activity>
     </application>
