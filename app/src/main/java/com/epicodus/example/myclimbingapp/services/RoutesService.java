@@ -39,7 +39,7 @@ public class RoutesService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
-        Log.d(url, "url Google");
+        Log.v(url, "url Google");
     }
 
     public static void findRoutes(String stringLatLng, Callback callback){
@@ -47,6 +47,9 @@ public class RoutesService {
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOUNTAIN_BASE_URL + stringLatLng + "&maxDistance=10&key=" + MOUNTAIN_TOKEN).newBuilder();
+
+//        "https://www.mountainproject.com/data/get-routes-for-lat-lon?maxResults=10&" + &lat=40.03&lon=-105.25 + &maxDistance=10&key=
+
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder()
@@ -54,9 +57,10 @@ public class RoutesService {
                 .header("Authorization", MOUNTAIN_TOKEN)
                 .build();
 
+
         Call call = client.newCall(request);
         call.enqueue(callback);
-        Log.d(url, "url mountain");
+        Log.v(url, "url mountain");
         Log.d(request.toString(), "request");
     }
 

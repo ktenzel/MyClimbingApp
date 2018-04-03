@@ -86,29 +86,31 @@ public class FindRouteListActivity extends AppCompatActivity {
         });
         return true;
     }
+
+
     private void getLatLon(String location){
         final RoutesService routesService = new RoutesService();
-        routesService.findLatLng(location, new Callback() {
-
+//        routesService.findLatLng(location, new Callback() {
+        routesService.findRoutes(location, new Callback(){
 
             @Override
             public void onFailure(Call call, IOException e) {e.printStackTrace();}
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                routes = routesService.processMountainResults(response);
+//                stringLatLng = routesService.processGoogleResults(response);
 
-                stringLatLng = routesService.processGoogleResults(response);
-
-                routesService.findRoutes(stringLatLng, new Callback(){
-
-                    @Override
-                    public void onFailure(Call call, IOException e) {e.printStackTrace();}
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        routes = routesService.processMountainResults(response);
-                    }
-                });
+//                routesService.findRoutes(stringLatLng, new Callback(){
+//
+//                    @Override
+//                    public void onFailure(Call call, IOException e) {e.printStackTrace();}
+//
+//                    @Override
+//                    public void onResponse(Call call, Response response) throws IOException {
+//                        routes = routesService.processMountainResults(response);
+//                    }
+//                });
                 FindRouteListActivity.this.runOnUiThread(new Runnable() {
 
                     @Override
@@ -127,4 +129,5 @@ public class FindRouteListActivity extends AppCompatActivity {
     private void addToSharedPreferences(String location) {
         mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
+
 }
