@@ -43,11 +43,26 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
         TextView routeNameTextView = (TextView) mView.findViewById(R.id.routeNameTextView);
         TextView ratingTextView = (TextView) mView.findViewById(R.id.ratingTextView);
 
-        Picasso.with(mContext)
-                .load(route.getImgMedium())
-                .resize(MAX_WIDTH, MAX_HEIGHT)
-                .centerCrop()
-                .into(routeImageView);
+//        Picasso.with(mContext)
+//                .load(route.getImgMedium())
+//                .resize(MAX_WIDTH, MAX_HEIGHT)
+//                .centerCrop()
+//                .into(routeImageView);
+
+        if (route.getImgMedium() != null) {
+            Picasso.with(mContext)
+                    .load(R.drawable.hero)
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(routeImageView);
+        } else {
+            Picasso.with(mContext)
+                    .load(route.getImgMedium())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(routeImageView);
+        }
+
 
         routeNameTextView.setText(route.getName());
         ratingTextView.setText("Rating: " + route.getRating());
@@ -69,7 +84,7 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
 
 
                 Intent intent = new Intent(mContext, FindRouteDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("routes", Parcels.wrap(routes));
 
                 mContext.startActivity(intent);

@@ -50,10 +50,8 @@ public class FindRouteListAdapter extends RecyclerView.Adapter<FindRouteListAdap
 
 
     public class FindRouteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.routeImageView)
-        ImageView mRouteImageView;
-        @BindView(R.id.routeNameTextView)
-        TextView mNameTextView;
+        @BindView(R.id.routeImageView)ImageView mRouteImageView;
+        @BindView(R.id.routeNameTextView)TextView mNameTextView;
         @BindView(R.id.ratingTextView) TextView mRatingTextView;
 
         private Context mContext;
@@ -61,25 +59,28 @@ public class FindRouteListAdapter extends RecyclerView.Adapter<FindRouteListAdap
         public FindRouteViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
         }
-
-        public void bindRoute(Route route) {
-            Picasso.with(mContext).load(route.getImgMedium()).into(mRouteImageView);
-            mNameTextView.setText(route.getName());
-            mRatingTextView.setText("Rating: " + route.getRating());
-        }
-
         @Override
         public void onClick(View v) {
-            Log.d("click listener", "working!");
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, FindRouteDetailActivity.class);
-            intent.putExtra("position", itemPosition + "");
+            intent.putExtra("position", itemPosition);
             intent.putExtra("routes", Parcels.wrap(mRoutes));
             mContext.startActivity(intent);
+        }
+
+        public void bindRoute(Route route) {
+            if (route.getImgMedium().isEmpty()) {
+                mRouteImageView.setImageResource(R.drawable.hero);
+            } else {
+                Picasso.with(mContext)
+                        .load(route.getImgMedium())
+                        .into(mRouteImageView);
+            }
+            mNameTextView.setText(route.getName());
+            mRatingTextView.setText("Rating: " + route.getRating());
         }
     }
 }

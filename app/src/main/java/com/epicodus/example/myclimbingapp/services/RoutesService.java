@@ -98,7 +98,7 @@ public class RoutesService {
                 JSONObject listJSON = routesJSON.getJSONObject(i);
                 String name = listJSON.getString("name");
                 String type = listJSON.getString("type");
-                String imgMedium = listJSON.getString("imgMedium");
+                String imgMedium = listJSON.optString("imgMedium", "null");
                 String rating = listJSON.getString("rating");
                 String url = listJSON.getString("url");
                 double latitude = (double) listJSON.getDouble("latitude");
@@ -109,7 +109,7 @@ public class RoutesService {
 
                 Log.d(stringLongitude, "longitude mountain");
                 Log.d(name, "name");
-
+                Log.d(imgMedium, "imgMedium: ");
                 Route route = new Route(name, type, imgMedium, rating, url, latitude, longitude);
                 routes.add(route);
             }

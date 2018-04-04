@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,17 +66,24 @@ public class FindRouteDetailFragement extends Fragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_find_route_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext())
-                .load(mRoute.getImgMedium())
-                .resize(MAX_WIDTH, MAX_HEIGHT)
-                .centerCrop()
-                .into(mImageLabel);
-
+        if (mRoute.getImgMedium().isEmpty()) {
+            Picasso.with(view.getContext())
+                    .load(R.drawable.hero)
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mImageLabel);
+        } else {
+            Picasso.with(view.getContext())
+                    .load(mRoute.getImgMedium())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+                    .centerCrop()
+                    .into(mImageLabel);
+        }
+        Log.d(mRoute.getImgMedium().toString(), "image: ");
         mNameLabel.setText(mRoute.getName());
         mTypeLabel.setText(mRoute.getType());
         mRatingLabel.setText(mRoute.getRating());
         mLocationLabel.setText("Lat: " + Double.toString(mRoute.getLatitude()) + " Lon: " + Double.toString(mRoute.getLongitude()));
-
         mWebsiteLabel.setOnClickListener(this);
         mLocationLabel.setOnClickListener(this);
         mSaveRouteButton.setOnClickListener(this);

@@ -47,10 +47,6 @@ public class FindRouteListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_find_route);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
-
-        getLatLon(location);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
 
@@ -107,17 +103,18 @@ public class FindRouteListActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         routes = routesService.processMountainResults(response);
-                    }
-                });
-                FindRouteListActivity.this.runOnUiThread(new Runnable() {
+                        FindRouteListActivity.this.runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void run() {
-                        mAdapter = new FindRouteListAdapter(getApplicationContext(), routes);
-                        mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FindRouteListActivity.this);
-                        mRecyclerView.setLayoutManager(layoutManager);
-                        mRecyclerView.setHasFixedSize(true);
+                            @Override
+                            public void run() {
+                                mAdapter = new FindRouteListAdapter(getApplicationContext(), routes);
+                                mRecyclerView.setAdapter(mAdapter);
+                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(FindRouteListActivity.this);
+                                mRecyclerView.setLayoutManager(layoutManager);
+                                mRecyclerView.setHasFixedSize(true);
+
+                            }
+                        });
 
                     }
                 });
