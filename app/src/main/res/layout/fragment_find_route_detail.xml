@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.example.myclimbingapp.ui.FindRouteDetailFragement">
+    tools:context="com.epicodus.example.myclimbingapp.ui.FindRouteDetailFragment">
 
     <ImageView
             android:layout_width="match_parent"
@@ -69,7 +69,9 @@
                 android:text="Type"
                 android:textColor="@color/colorTextIcons"
                 android:textSize="15sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:background="#000"
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/websiteTextView"
@@ -82,8 +84,10 @@
                 android:gravity="center"
                 android:text="View Online"
                 android:textColor="@color/colorTextIcons"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="#000"
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/locationTextView"
@@ -96,8 +100,10 @@
                 android:gravity="center_vertical"
                 android:text="Lat: 44.0314 Lon: -121.334"
                 android:textColor="@color/colorTextIcons"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:background="#000"
+                android:padding="5dp"/>
 
             <Button
                 android:layout_width="match_parent"

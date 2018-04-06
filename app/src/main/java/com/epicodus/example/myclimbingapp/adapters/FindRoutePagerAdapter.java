@@ -5,8 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.epicodus.example.myclimbingapp.models.Route;
-import com.epicodus.example.myclimbingapp.ui.FindRouteDetailActivity;
-import com.epicodus.example.myclimbingapp.ui.FindRouteDetailFragement;
+import com.epicodus.example.myclimbingapp.ui.FindRouteDetailFragment;
 
 import java.util.ArrayList;
 
@@ -20,7 +19,7 @@ public class FindRoutePagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return FindRouteDetailFragement.newInstance(mRoutes.get(position));
+        return FindRouteDetailFragment.newInstance(mRoutes.get(position));
     }
 
     @Override
