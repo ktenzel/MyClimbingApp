@@ -185,12 +185,12 @@ public class FindRouteDetailFragment extends Fragment implements View.OnClickLis
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
-            DatabaseReference restaurantRef = FirebaseDatabase
+            DatabaseReference routeRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_ROUTES)
                     .child(uid);
 
-            DatabaseReference pushRef = restaurantRef.push();
+            DatabaseReference pushRef = routeRef.push();
             String pushId = pushRef.getKey();
             mRoute.setPushId(pushId);
             pushRef.setValue(mRoute);

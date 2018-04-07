@@ -1,6 +1,5 @@
 package com.epicodus.example.myclimbingapp.adapters;
 
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;

@@ -72,7 +72,7 @@ public class FindRouteListActivity extends AppCompatActivity implements OnRouteS
         }
     }
     @Override
-    public void onRestaurantSelected(Integer position, ArrayList<Route> routes, String source) {
+    public void onRouteSelected(Integer position, ArrayList<Route> routes, String source) {
         mPosition = position;
         mRoutes = routes;
         mSource = source;
