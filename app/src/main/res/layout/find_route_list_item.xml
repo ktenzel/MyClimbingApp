@@ -10,6 +10,7 @@
         android:layout_height="150dp"
         android:id="@+id/routeImageView"
         android:background="@drawable/hero"
+        android:src="@drawable/hero"
         android:scaleType="centerCrop"
         android:alpha="0.8" />
 
