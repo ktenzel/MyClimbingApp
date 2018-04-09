@@ -10,6 +10,54 @@
             android:id="@+id/routeImageView"
             android:src="@drawable/hero"
             android:scaleType="centerCrop" />
+    <TextView
+        android:id="@+id/routeTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/websiteTextView"
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/ic_timeline_white_24dp"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:text="Type"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="#000"
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/websiteTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/locationTextView"
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:text="View Online"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#000"
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_alignLeft="@id/routeImageView"
+        android:layout_alignBottom="@id/routeImageView"
+        android:drawableLeft="@drawable/ic_map_white_24dp"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text="Lat: 44.0314 Lon: -121.334"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:background="#000"
+        android:padding="5dp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -57,53 +105,7 @@
                 android:paddingLeft="30dp"
                 android:paddingTop="20dp"
                 android:paddingRight="30dp"/>
-            <TextView
-                android:id="@+id/routeTypeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/websiteTextView"
-                android:layout_marginBottom="10dp"
-                android:drawableLeft="@drawable/ic_timeline_white_24dp"
-                android:drawablePadding="4dp"
-                android:gravity="center"
-                android:text="Type"
-                android:textColor="@color/colorTextIcons"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:background="#000"
-                android:padding="5dp"/>
 
-            <TextView
-                android:id="@+id/websiteTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/locationTextView"
-                android:layout_marginBottom="10dp"
-                android:drawableLeft="@drawable/ic_exit_to_app_white_24dp"
-                android:drawablePadding="4dp"
-                android:gravity="center"
-                android:text="View Online"
-                android:textColor="@color/colorTextIcons"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:background="#000"
-                android:padding="5dp"/>
-
-            <TextView
-                android:id="@+id/locationTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_above="@+id/saveRouteButton"
-                android:drawableLeft="@drawable/ic_map_white_24dp"
-                android:drawablePadding="4dp"
-                android:gravity="center_vertical"
-                android:text="Lat: 44.0314 Lon: -121.334"
-                android:textColor="@color/colorTextIcons"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:background="#000"
-                android:padding="5dp"/>
 
             <Button
                 android:layout_width="match_parent"
