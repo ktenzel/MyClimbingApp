@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:text="Routes"
         android:textColor="#fff"
-        android:textSize="60sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="185dp"
         tools:layout_editor_absoluteY="0dp" />
@@ -40,13 +40,13 @@
         android:layout_alignStart="@+id/appNameTextView"
         android:layout_below="@+id/appNameTextView"
         android:layout_marginLeft="98dp"
-        android:layout_marginStart="98dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="19dp">
 
         <Button
             android:id="@+id/routesButton"
             android:layout_width="match_parent"
-            android:layout_height="150sp"
+            android:layout_height="100sp"
             android:layout_alignParentLeft="true"
             android:layout_below="@id/findRoutesButton"
             android:background="@drawable/gradientmyroutes"
@@ -58,7 +58,7 @@
         <Button
             android:id="@+id/findRoutesButton"
             android:layout_width="match_parent"
-            android:layout_height="150sp"
+            android:layout_height="100sp"
             android:layout_alignLeft="@id/routesButton"
             android:layout_alignParentRight="true"
             android:background="@drawable/gradientroute"
