@@ -20,8 +20,8 @@ import com.squareup.picasso.Picasso;
 import java.io.IOException;
 
 public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
-    private static final int MAX_WIDTH = 800;
-    private static final int MAX_HEIGHT = 600;
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
 
     View mView;
     Context mContext;
@@ -35,7 +35,6 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
 
     public void bindRoute (Route route) {
         mRouteImageView = (ImageView) mView.findViewById(R.id.routeImageView);
-        ImageView routeImageView = (ImageView) mView.findViewById(R.id.routeImageView);
         TextView routeNameTextView = (TextView) mView.findViewById(R.id.routeNameTextView);
         TextView ratingTextView = (TextView) mView.findViewById(R.id.ratingTextView);
         if(!route.getImgMedium().contains("http")){
@@ -45,21 +44,25 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else{
-
-        if (route.getImgMedium() != null) {
-            Picasso.with(mContext)
-                    .load(R.drawable.hero)
-                    .resize(MAX_WIDTH, MAX_HEIGHT)
-                    .centerCrop()
-                    .into(routeImageView);
         } else {
             Picasso.with(mContext)
                     .load(route.getImgMedium())
                     .resize(MAX_WIDTH, MAX_HEIGHT)
                     .centerCrop()
-                    .into(routeImageView);
-            }
+                    .into(mRouteImageView);
+//        if (route.getImgMedium() != null) {
+//            Picasso.with(mContext)
+//                    .load(R.drawable.hero)
+//                    .resize(MAX_WIDTH, MAX_HEIGHT)
+//                    .centerCrop()
+//                    .into(mRouteImageView);
+//        } else {
+//            Picasso.with(mContext)
+//                    .load(route.getImgMedium())
+//                    .resize(MAX_WIDTH, MAX_HEIGHT)
+//                    .centerCrop()
+//                    .into(mRouteImageView);
+//            }
             routeNameTextView.setText(route.getName());
             ratingTextView.setText("Rating: " + route.getRating());
         }
@@ -75,7 +78,7 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
     @Override
     public void onItemSelected() {
         AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(mContext,
-                R.animator.drag_scale_on);
+                    R.animator.drag_scale_on);
         set.setTarget(itemView);
         set.start();
     }

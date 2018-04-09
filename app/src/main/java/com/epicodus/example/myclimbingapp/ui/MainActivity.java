@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     @BindView(R.id.routesButton) Button mRoutesButton;
-//    @BindView(R.id.aboutButton) Button mAboutButton;
-//    @BindView(R.id.contactButton) Button mContactButton;
     @BindView(R.id.findRoutesButton) Button mFindRoutesButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
@@ -39,11 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAppNameTextView.setTypeface(baseFont);
 
         mRoutesButton.setOnClickListener(this);
-//        mAboutButton.setOnClickListener(this);
-//        mContactButton.setOnClickListener(this);
         mFindRoutesButton.setOnClickListener(this);
 
-        //verify authentication
+
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -106,14 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, SavedRoutesListActivity.class);
             startActivity(intent);
         }
-//        if (v == mAboutButton) {
-//            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-//            startActivity(intent);
-//        }
-//        if (v == mContactButton) {
-//            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
-//            startActivity(intent);
-//        }
         if (v == mFindRoutesButton){
             Intent intent = new Intent(MainActivity.this, FindRouteListActivity.class);
             startActivity(intent);

@@ -11,6 +11,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,7 +35,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class FindRouteListFragment extends Fragment{
+public class FindRouteListFragment extends Fragment {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
@@ -62,12 +63,13 @@ public class FindRouteListFragment extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mEditor = mSharedPreferences.edit();
         setHasOptionsMenu(true);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-    View view = inflater.inflate(R.layout.fragment_find_route_list, container, false);
+    View view = inflater.inflate(R.layout.fragment_route_list, container, false);
     ButterKnife.bind(this, view);
     mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
     if (mRecentAddress != null) {
@@ -141,7 +143,7 @@ public class FindRouteListFragment extends Fragment{
     }
 
     private void addToSharedPreferences(String location) {
+        Log.d(location, "location ");
         mEditor.putString(Constants.PREFERENCES_LOCATION_KEY, location).apply();
     }
-
 }

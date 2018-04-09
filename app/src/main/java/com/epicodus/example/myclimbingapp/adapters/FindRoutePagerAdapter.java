@@ -11,15 +11,17 @@ import java.util.ArrayList;
 
 public class FindRoutePagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Route> mRoutes;
+    String mSource;
 
-    public FindRoutePagerAdapter(FragmentManager fm, ArrayList<Route> routes) {
+    public FindRoutePagerAdapter(FragmentManager fm, ArrayList<Route> routes, String source) {
         super(fm);
         mRoutes = routes;
+        mSource = source;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return FindRouteDetailFragment.newInstance(mRoutes.get(position));
+        return FindRouteDetailFragment.newInstance(mRoutes,position,mSource);
     }
 
     @Override

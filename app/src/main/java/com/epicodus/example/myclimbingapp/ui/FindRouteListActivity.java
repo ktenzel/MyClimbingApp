@@ -1,45 +1,28 @@
 package com.epicodus.example.myclimbingapp.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+
 import android.content.res.Configuration;
-import android.os.Parcel;
-import android.preference.PreferenceManager;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
-import com.epicodus.example.myclimbingapp.adapters.FindRouteListAdapter;
+
 
 import com.epicodus.example.myclimbingapp.models.Route;
-import com.epicodus.example.myclimbingapp.services.RoutesService;
+
+import com.epicodus.example.myclimbingapp.util.OnRouteSelectedListener;
 
 import org.parceler.Parcels;
 
-import java.io.IOException;
-import java.util.ArrayList;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
+import java.util.ArrayList;
 
 public class FindRouteListActivity extends AppCompatActivity implements OnRouteSelectedListener {
     private Integer mPosition;
     ArrayList<Route> mRoutes;
     String mSource;
-    String stringLatLng;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +37,7 @@ public class FindRouteListActivity extends AppCompatActivity implements OnRouteS
 
             if(mPosition != null && mRoutes != null) {
                 Intent intent = new Intent(this, FindRouteDetailActivity.class);
-                intent.putExtra(Constants.EXTRA_KEY_POSITION.mPosition);
+                intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
                 intent.putExtra(Constants.EXTRA_KEY_ROUTES, Parcels.wrap(mRoutes));
                 intent.putExtra(Constants.KEY_SOURCE, mSource);
                 startActivity(intent);

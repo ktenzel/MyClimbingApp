@@ -52,7 +52,8 @@ public class SavedRouteListFragment extends Fragment implements OnStartDragListe
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
-        mFirebaseAdapter = new FirebaseFindRouteListAdapter(Route.class, R.layout.route_list_item_drag, FirebaseFindRouteViewHolder.class,
+        mFirebaseAdapter = new FirebaseFindRouteListAdapter(Route.class,
+                R.layout.route_list_item_drag, FirebaseFindRouteViewHolder.class,
                 query, this, getActivity());
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

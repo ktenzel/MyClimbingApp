@@ -110,7 +110,7 @@ public class FindRouteDetailFragment extends Fragment implements View.OnClickLis
         mLocationLabel.setOnClickListener(this);
         mSaveRouteButton.setOnClickListener(this);
         if (mSource.equals(Constants.SOURCE_SAVED)){
-            mSaveRouteButton.setVisibility(View.Gone);
+            mSaveRouteButton.setVisibility(View.GONE);
         } else {
             mSaveRouteButton.setOnClickListener(this);
         }
