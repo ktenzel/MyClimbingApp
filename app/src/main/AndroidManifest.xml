@@ -3,7 +3,10 @@
     package="com.epicodus.example.myclimbingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -12,26 +15,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
-        </activity>
+        <activity android:name=".ui.MainActivity" />
         <activity
             android:name=".ui.ContactActivity"
-            android:theme="@style/NoActionBarTheme">
-
-        </activity>
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".ui.RoutesActivity"
-            android:theme="@style/NoActionBarTheme">
-        </activity>
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".ui.AboutActivity"
-            android:theme="@style/NoActionBarTheme">
-        </activity>
+            android:theme="@style/NoActionBarTheme" />
         <activity android:name=".ui.RouteListActivity" />
         <activity android:name=".ui.FindRouteListActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.MainActivity" />
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
         </activity>
         <activity android:name=".ui.FindRouteDetailActivity" />
         <activity android:name=".ui.LoginActivity">
@@ -42,7 +40,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.CreateAccountActivity" />
-        <activity android:name=".ui.SavedRoutesListActivity"></activity>
+        <activity android:name=".ui.SavedRoutesListActivity" />
+        <activity android:name=".ui.UserListActivity" />
+        <activity android:name=".ui.MessageActivity"></activity>
     </application>
 
 </manifest>

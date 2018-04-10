@@ -24,13 +24,13 @@
         android:padding="30dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:id="@+id/linearLayout">
 
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
             android:hint="Name"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
@@ -43,7 +43,6 @@
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@+id/passwordEditText"
@@ -57,7 +56,6 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
@@ -71,7 +69,6 @@
             android:id="@+id/confirmPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
@@ -80,6 +77,18 @@
             android:textColor="@android:color/black"
             android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
+
+
+        <ImageView
+            android:id="@+id/profilePicIcon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="15dp"
+            android:layout_alignLeft="@id/routeImageView"
+            android:layout_alignBottom="@id/routeImageView"
+            android:gravity="bottom|left"
+            android:src="@drawable/ic_camera_enhance_white_24dp"
+            android:background="@drawable/button_border"/>
 
 
         <Button

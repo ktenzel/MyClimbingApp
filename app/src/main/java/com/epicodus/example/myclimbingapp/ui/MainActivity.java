@@ -23,9 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    @BindView(R.id.routesButton) Button mRoutesButton;
     @BindView(R.id.findRoutesButton) Button mFindRoutesButton;
+    @BindView(R.id.routesButton) Button mRoutesButton;
+    @BindView(R.id.usersButton) Button mUsersButton;
+    @BindView(R.id.messageButton) Button mMessageButton;
+    @BindView(R.id.eventButton) Button mEventButton;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Typeface baseFont = Typeface.createFromAsset(getAssets(), "fonts/Base02.ttf");
         mAppNameTextView.setTypeface(baseFont);
 
-        mRoutesButton.setOnClickListener(this);
         mFindRoutesButton.setOnClickListener(this);
-
+        mRoutesButton.setOnClickListener(this);
+        mUsersButton.setOnClickListener(this);
+        mMessageButton.setOnClickListener(this);
+        mEventButton.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -100,6 +106,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mRoutesButton) {
             Intent intent = new Intent(MainActivity.this, SavedRoutesListActivity.class);
+            startActivity(intent);
+        }
+        if (v == mFindRoutesButton){
+            Intent intent = new Intent(MainActivity.this, FindRouteListActivity.class);
+            startActivity(intent);
+        }
+        if (v == mUsersButton){
+            Intent intent = new Intent(MainActivity.this, UserListActivity.class);
+            startActivity(intent);
+        }
+        if (v == mMessageButton){
+            Intent intent = new Intent(MainActivity.this, MessageActivity.class);
             startActivity(intent);
         }
         if (v == mFindRoutesButton){

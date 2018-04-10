@@ -2,40 +2,53 @@ package com.epicodus.example.myclimbingapp.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
+import com.epicodus.example.myclimbingapp.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.ByteArrayOutputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{
+    private static final int REQUEST_IMAGE_CAPTURE = 111;
+
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private ProgressDialog mAuthProgressDialog;
     private String mName;
+    private String profilePic;
 
     @BindView(R.id.createUserButton)
     Button mCreateUserButton;
-    @BindView(R.id.nameEditText)
-    EditText mNameEditText;
+    @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @BindView(R.id.loginTextView)TextView mLoginTextView;
+    @BindView(R.id.profilePicIcon)ImageView mProfilePic;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -49,6 +62,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         createAuthStateListener();
         createAuthProgressDialog();
 
+        mProfilePic.setOnClickListener(this);
         mLoginTextView.setOnClickListener(this);
         mCreateUserButton.setOnClickListener(this);
     }
@@ -74,6 +88,9 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
+        if (view == mProfilePic) {
+            onLaunchCamera();
+        }
         if (view == mLoginTextView) {
             Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -83,6 +100,38 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         if (view == mCreateUserButton) {
             createNewUser();
         }
+    }
+    public void onLaunchCamera() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            encodeBitmapAndSaveForUser(imageBitmap);
+        }
+    }
+
+    public void encodeBitmapAndSaveForUser(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        String imageEncoded = Base64.encodeToString(baos.toByteArray(), Base64.DEFAULT);
+        profilePic = imageEncoded;
+    }
+
+    private void createUserModel() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        User mUser = new User (mName, uid, profilePic);
+        DatabaseReference userRef = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_USERS)
+                .child(uid);
+        userRef.setValue(mUser);
+
     }
     private void createNewUser() {
         final String name = mNameEditText.getText().toString().trim();
@@ -107,6 +156,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                 if (task.isSuccessful()) {
                     Log.d(TAG, "Authentication successful");
                     createFirebaseUserProfile(task.getResult().getUser());
+                    createUserModel();
                 } else {
                     Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
