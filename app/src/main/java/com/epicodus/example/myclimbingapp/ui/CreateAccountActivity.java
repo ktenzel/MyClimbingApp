@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
-import com.epicodus.example.myclimbingapp.models.User;
+import com.epicodus.example.myclimbingapp.models.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -125,12 +125,12 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        User mUser = new User (mName, uid, profilePic);
+        Users mUsers = new Users(mName, uid, profilePic);
         DatabaseReference userRef = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_USERS)
                 .child(uid);
-        userRef.setValue(mUser);
+        userRef.setValue(mUsers);
 
     }
     private void createNewUser() {

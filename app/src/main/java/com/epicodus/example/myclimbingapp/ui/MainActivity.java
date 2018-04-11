@@ -112,10 +112,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, FindRouteListActivity.class);
             startActivity(intent);
         }
+
         if (v == mUsersButton){
             Intent intent = new Intent(MainActivity.this, UserListActivity.class);
             startActivity(intent);
         }
+        
         if (v == mMessageButton){
             Intent intent = new Intent(MainActivity.this, MessageActivity.class);
             startActivity(intent);

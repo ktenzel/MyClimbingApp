@@ -3,14 +3,14 @@ package com.epicodus.example.myclimbingapp.models;
 import org.parceler.Parcel;
 
 @Parcel
-public class User {
+public class Users {
     String userName;
     String uid;
     String profilePic;
 
-    public User(){}
+    public Users(){}
 
-    public User(String userName, String uid, String profilePic){
+    public Users(String userName, String uid, String profilePic){
         this.userName = userName;
         this.uid = uid;
         this.profilePic = profilePic;

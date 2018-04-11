@@ -17,6 +17,7 @@ import com.epicodus.example.myclimbingapp.adapters.FirebaseFindRouteViewHolder;
 import com.epicodus.example.myclimbingapp.models.Route;
 import com.epicodus.example.myclimbingapp.util.OnStartDragListener;
 import com.epicodus.example.myclimbingapp.util.SimpleItemTouchHelperCallback;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
@@ -52,9 +53,17 @@ public class SavedRouteListFragment extends Fragment implements OnStartDragListe
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
-        mFirebaseAdapter = new FirebaseFindRouteListAdapter(Route.class,
-                R.layout.route_list_item_drag, FirebaseFindRouteViewHolder.class,
-                query, this, getActivity());
+
+        FirebaseRecyclerOptions<Route> options = new FirebaseRecyclerOptions.Builder<Route>()
+                .setQuery(query, Route.class)
+                .build();
+
+        mFirebaseAdapter = new FirebaseFindRouteListAdapter(options);
+        {
+            @Override
+                public void onBindViewHolder(FirebaseFindRouteViewHolder holder, int position, Routes model) {
+                holder.bindRoute(model);
+        }
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mFirebaseAdapter);

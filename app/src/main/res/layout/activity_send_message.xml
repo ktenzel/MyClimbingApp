@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.example.myclimbingapp.ui.SendMessageActivity">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/messageRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearStuff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/linearStuff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messageRecyclerView">
+
+        <EditText
+            android:id="@+id/messageEditText"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:hint="message here"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/messageSendButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_toRightOf="@id/messageEditText"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:text="send" />
+        <Button
+            android:id="@+id/inviteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_below="@id/messageSendButton"
+            android:textAlignment="center"
+            android:paddingTop="15dp"
+            android:text="invite" />
+
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
