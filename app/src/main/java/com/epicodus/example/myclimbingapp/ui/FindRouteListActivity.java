@@ -1,13 +1,19 @@
 package com.epicodus.example.myclimbingapp.ui;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -60,18 +66,18 @@ public class FindRouteListActivity extends AppCompatActivity implements OnRouteS
             }
         }, 400);
 
-    if(savedInstanceState != null){
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
-            mRoutes = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_ROUTES));
-            mSource = savedInstanceState.getString(Constants.KEY_SOURCE);
+        if(savedInstanceState != null){
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+                mPosition = savedInstanceState.getInt(Constants.EXTRA_KEY_POSITION);
+                mRoutes = Parcels.unwrap(savedInstanceState.getParcelable(Constants.EXTRA_KEY_ROUTES));
+                mSource = savedInstanceState.getString(Constants.KEY_SOURCE);
 
-            if(mPosition != null && mRoutes != null) {
-                Intent intent = new Intent(this, FindRouteDetailActivity.class);
-                intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
-                intent.putExtra(Constants.EXTRA_KEY_ROUTES, Parcels.wrap(mRoutes));
-                intent.putExtra(Constants.KEY_SOURCE, mSource);
-                startActivity(intent);
+                if(mPosition != null && mRoutes != null) {
+                    Intent intent = new Intent(this, FindRouteDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_KEY_POSITION, mPosition);
+                    intent.putExtra(Constants.EXTRA_KEY_ROUTES, Parcels.wrap(mRoutes));
+                    intent.putExtra(Constants.KEY_SOURCE, mSource);
+                    startActivity(intent);
                 }
             }
         }
