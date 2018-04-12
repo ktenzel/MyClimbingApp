@@ -22,9 +22,8 @@ import java.io.IOException;
 public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
-
-    View mView;
-    Context mContext;
+    private View mView;
+    private Context mContext;
     public ImageView mRouteImageView;
 
     public FirebaseFindRouteViewHolder(View itemView) {
@@ -50,19 +49,6 @@ public class FirebaseFindRouteViewHolder extends RecyclerView.ViewHolder impleme
                     .resize(MAX_WIDTH, MAX_HEIGHT)
                     .centerCrop()
                     .into(mRouteImageView);
-//        if (route.getImgMedium() != null) {
-//            Picasso.with(mContext)
-//                    .load(R.drawable.hero)
-//                    .resize(MAX_WIDTH, MAX_HEIGHT)
-//                    .centerCrop()
-//                    .into(mRouteImageView);
-//        } else {
-//            Picasso.with(mContext)
-//                    .load(route.getImgMedium())
-//                    .resize(MAX_WIDTH, MAX_HEIGHT)
-//                    .centerCrop()
-//                    .into(mRouteImageView);
-//            }
             routeNameTextView.setText(route.getName());
             ratingTextView.setText("Rating: " + route.getRating());
         }

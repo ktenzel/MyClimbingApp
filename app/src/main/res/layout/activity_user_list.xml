@@ -5,11 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.FindRouteListActivity">
 
-    <fragment
-        android:id="@+id/fragmentUserList"
-        android:name="com.epicodus.example.myclimbingapp.ui.UserListFragment"
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_route_list" />
+        android:text="users"/>
+    <!--<fragment-->
+        <!--android:id="@+id/fragmentUserList"-->
+        <!--android:name="com.epicodus.example.myclimbingapp.ui.UserListFragment"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--tools:layout="@layout/fragment_route_list" />-->
 
 </RelativeLayout>
