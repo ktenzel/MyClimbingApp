@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_search_white_24dp"
+        android:id="@+id/capture"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To search for climbing routes click the magnifying glass icon in the top right, and enter in a location.  Example: 97203; Portland,OR; Smith Rock State Park"
+        android:textColor="#fff"
+        android:layout_margin="10dp"
+        android:id="@+id/dialog_text"
+        android:layout_below="@+id/capture"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_text"
+        android:text="OK"
+        android:background="#000"
+        android:textColor="#fff"
+        android:id="@+id/ok"/>
+</RelativeLayout>

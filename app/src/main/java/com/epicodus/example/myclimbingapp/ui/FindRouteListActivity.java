@@ -1,10 +1,17 @@
 package com.epicodus.example.myclimbingapp.ui;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.epicodus.example.myclimbingapp.Constants;
 import com.epicodus.example.myclimbingapp.R;
@@ -19,15 +26,39 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FindRouteListActivity extends AppCompatActivity implements OnRouteSelectedListener {
+import butterknife.BindView;
+
+public class FindRouteListActivity extends AppCompatActivity implements OnRouteSelectedListener, View.OnClickListener {
     private Integer mPosition;
     ArrayList<Route> mRoutes;
     String mSource;
+    Dialog RouteDialog;
+    Button mOk;
+
+    public void RouteDialogueAlert(){
+        RouteDialog = new Dialog(FindRouteListActivity.this);
+        RouteDialog.setContentView(R.layout.route_dialog);
+        RouteDialog.show();
+
+        mOk = (Button)RouteDialog.findViewById(R.id.ok);
+        mOk.setOnClickListener(this);
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_route);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                RouteDialogueAlert();
+
+            }
+        }, 400);
 
     if(savedInstanceState != null){
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
@@ -59,5 +90,12 @@ public class FindRouteListActivity extends AppCompatActivity implements OnRouteS
         mPosition = position;
         mRoutes = routes;
         mSource = source;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == mOk){
+            RouteDialog.dismiss();
+        }
     }
 }
