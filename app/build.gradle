@@ -85,8 +85,10 @@ dependencies {
     annotationProcessor 'org.parceler:parceler:1.1.6'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation "com.newrelic.agent.android:android-agent:5.17.2"
 
 }
 
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'newrelic'
 
