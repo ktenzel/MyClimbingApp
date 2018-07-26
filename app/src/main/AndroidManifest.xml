@@ -21,7 +21,6 @@
         <activity
             android:name=".ui.ContactActivity"
             android:theme="@style/NoActionBarTheme">
-
         </activity>
         <activity
             android:name=".ui.RoutesActivity"
@@ -33,20 +32,19 @@
         </activity>
         <activity android:name=".ui.RouteListActivity" />
         <activity android:name=".ui.FindRouteListActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".ui.MainActivity" />
-        </activity>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.MainActivity" />
+            </activity>
         <activity android:name=".ui.FindRouteDetailActivity" />
+        <activity android:name=".ui.SavedRoutesListActivity" />
+        <activity android:name=".ui.CreateAccountActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.CreateAccountActivity" />
-        <activity android:name=".ui.SavedRoutesListActivity"></activity>
     </application>
 
 </manifest>

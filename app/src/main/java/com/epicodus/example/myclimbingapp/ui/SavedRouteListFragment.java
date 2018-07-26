@@ -32,8 +32,7 @@ public class SavedRouteListFragment extends Fragment implements OnStartDragListe
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    public SavedRouteListFragment() {
-    }
+    public SavedRouteListFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,6 +54,7 @@ public class SavedRouteListFragment extends Fragment implements OnStartDragListe
         mFirebaseAdapter = new FirebaseFindRouteListAdapter(Route.class,
                 R.layout.route_list_item_drag, FirebaseFindRouteViewHolder.class,
                 query, this, getActivity());
+
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(mFirebaseAdapter);
