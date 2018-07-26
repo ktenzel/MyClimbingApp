@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        NewRelic.withApplicationToken(
+
+                "AAd9d3e37d32e4b2cc3831e2f766bdcee24f73f1c3"
+        ).start(this.getApplication());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
